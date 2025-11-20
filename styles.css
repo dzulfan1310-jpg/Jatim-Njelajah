@@ -1,0 +1,397 @@
+/* Jatim Njelajah - Main Stylesheet */
+
+:root {
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --accent: #ffb703;
+  --glass: rgba(255, 255, 255, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #061021 0%, #07142a 100%);
+  color: #e6eef8;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+aside {
+  width: 260px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  padding: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ff7a00, #ffd166);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #08101a;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+nav {
+  margin-top: 8px;
+}
+
+nav a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+nav a.active,
+nav a:hover {
+  background: var(--glass);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  padding: 28px;
+}
+
+.top-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.card .title {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.card .value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+}
+
+.panel {
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.map-placeholder {
+  height: 300px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #052033, #08324a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+}
+
+/* Overlay for embedded Google Maps iframe when clicking a region */
+.map-iframe-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.map-iframe-panel {
+  width: 92%;
+  max-width: 1100px;
+  height: 74%;
+  background: #071428;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.map-iframe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent);
+}
+
+.map-iframe-header .title {
+  font-weight: 700;
+  color: #e6eef8;
+}
+
+.map-iframe-header .close-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 8px;
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.map-iframe-content {
+  flex: 1;
+  display: flex;
+  gap: 0;
+}
+
+.map-iframe-body {
+  width: 65%;
+  background: #000;
+}
+
+.map-iframe-body iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map-iframe-info {
+  width: 35%;
+  padding: 12px;
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+}
+
+.map-iframe-info h3 {
+  margin: 0 0 8px 0;
+  color: #e6eef8;
+}
+
+.map-iframe-info .small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.map-iframe-info ul {
+  margin: 8px 0 0 18px;
+  color: var(--muted);
+}
+
+/* Improved readability for map info panel */
+.map-iframe-info {
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border-left: 1px solid rgba(255,255,255,0.03);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.map-iframe-info h3 { font-size: 18px; margin-bottom:10px; }
+.map-iframe-info .small { color: #dbeeff; font-size: 15px; }
+.map-iframe-info ul { margin-left: 18px; color: #e6eef8; }
+.map-iframe-info ul li { margin-bottom:6px; font-size:14px; }
+.map-iframe-info .open-native { box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
+
+/* Calendar list visibility tweaks */
+#calendar-list .card { background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border:1px solid rgba(255,255,255,0.035); padding:14px; }
+#calendar-list .card strong { color: #e6eef8; font-size:15px; }
+#calendar-list .card .small { color: #dbeeff; font-size:14px; line-height:1.45; }
+#calendar-list .card ul { margin-top:8px; margin-left:16px; color:#e6eef8; }
+#calendar-list .card li { margin-bottom:6px; }
+
+.map-iframe-info .open-native {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #08101a;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* City card grid for map */
+.city-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.city-card {
+  width: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.city-card img {
+  width: 100%;
+  height: 96px;
+  object-fit: cover;
+  display: block;
+}
+
+.city-card .city-label {
+  padding: 8px;
+  font-weight: 700;
+  color: #e6eef8;
+  text-align: center;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.06));
+}
+
+.city-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+form .row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+input[type='text'],
+select {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: transparent;
+  color: inherit;
+}
+
+button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: #08101a;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.list {
+  max-height: 260px;
+  overflow: auto;
+  margin-top: 8px;
+}
+
+.list .item {
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+footer {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  aside {
+    display: none;
+  }
+  .top-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Welcome overlay & interactive effects === */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, rgba(2,6,23,0.85) 0%, rgba(2,6,23,0.92) 60%);
+  z-index: 99999;
+}
+.welcome-overlay[aria-hidden="true"]{ display:none }
+.welcome-card {
+  width: min(760px, 92%);
+  max-width: 820px;
+  padding: 28px;
+  border-radius: 14px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 18px 60px rgba(2,6,23,0.7);
+}
+.welcome-card h2{ font-size: 26px; margin:0 0 10px; color: #fff }
+.welcome-card .small{ color: var(--muted); margin-bottom:14px }
+.welcome-actions{ display:flex; gap:10px; justify-content:center; margin-top:8px }
+.welcome-actions button{ padding:10px 16px; border-radius:10px; border:none; cursor:pointer; font-weight:700 }
+#btn-surprise{ background: linear-gradient(90deg,#ffb703,#ff7a00); color:#08101a }
+.welcome-actions .muted{ background: transparent; color: var(--muted); border:1px solid rgba(255,255,255,0.04) }
+.hint{ margin-top:12px; font-size:12px; color:rgba(255,255,255,0.6) }
+
+/* Confetti canvas fills the overlay */
+#confetti-canvas{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none }
+
+/* Tiny particle cursor trail for visual delight */
+.particle{ position:fixed; width:8px; height:8px; border-radius:50%; pointer-events:none; transform:translate(-50%,-50%); opacity:0.9 }
+
+@media (max-width:600px){ .welcome-card{ padding:18px } .welcome-card h2{ font-size:20px } }
